@@ -27,11 +27,11 @@ import play.data.validation.Constraints.Required;
 public class Login {
     //todo необходим добавить message для всех аннотаций отдельных полей
     @Email(message = "Некорректный адрес электронной почты")
-    @Required
+    @Required(message = "Не указан e-mail")
     public String email;
 
     //todo обязательное поле
-    @Required
+    @Required(message = "Не указан пароль")
     public String password;
 
     /**

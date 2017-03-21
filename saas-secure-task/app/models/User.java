@@ -74,7 +74,7 @@ public class User extends Model {
      * @return в случае совпадения пароля, возвращет true, иначе возвращает false
      */
     private boolean checkPassword(String password) {
-        if(!password.isEmpty() && (this.passwordHash == getHash(password + this.salt))){
+        if(!password.isEmpty() && (this.passwordHash.equals(getHash(password + this.salt)))){
             return true;
         }
         else {return false;}

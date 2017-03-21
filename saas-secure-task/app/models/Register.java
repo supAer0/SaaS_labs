@@ -28,11 +28,11 @@ public class Register{
 
     //todo обязательное поле с подписью, эл. почта
     @Email(message = "Некорректный адрес электронной почты")
-    @Required
+    @Required(message = "Не указан e-mail")
     public String email;
 
     //todo обязательное поле с подписью
-    @Required
+    @Required(message = "Не указан пароль")
     public String password;
 
     /**

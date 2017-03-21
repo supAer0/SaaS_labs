@@ -53,6 +53,9 @@ public class Admin extends Controller {
             return badRequest(profile.render(cpForm));
         else {
             flash("success","Пароль успешно изменен");
+            User user = Auth.currentUser();
+            user.setPassword(cpForm.get().newPassword);
+            user.save();
             Form<ChangePassword> cpForm1 = Form.form(ChangePassword.class);
             return ok(profile.render(cpForm1));
         }

@@ -26,13 +26,11 @@ import play.data.validation.Constraints.*;
  */
 public class ChangePassword{
     //todo обязательное поле с подписью
-    @Email(message = "Некорректный пароль")
-    @Required
+    @Required(message = "Неверный пароль")
     public String password;
 
     //todo обязательное поле с подписью
-    @Email(message = "Некорректный пароль")
-    @Required
+    @Required(message = "Некорректный пароль")
     public String newPassword;
 
 
@@ -46,7 +44,7 @@ public class ChangePassword{
     public String validate() {
         //todo
         String email =  Auth.currentUserEmail();
-       // User user = Auth.currentUser();
+        //User user = Auth.currentUser();
         return User.authenticate(email, password);
     }
 }

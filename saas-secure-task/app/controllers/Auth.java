@@ -98,6 +98,9 @@ public class Auth extends Controller {
             return badRequest(register.render(rForm));
         else {
             User user = new User(rForm.get().email,rForm.get().password);
+            user.save();
+            session("email", rForm.get().email);
+            flash("success","Вы успешно аутентифицировались. Добро пожаловать!");
             return redirect(routes.Application.index());
         }
     }
